@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
+	
+  <localRepository>D:/workSpaces/mavenRepository</localRepository>
+	
+  <pluginGroups></pluginGroups> 
+  <proxies></proxies>
+
+  <servers>
+    <server>
+      <id>repo-alpha</id>
+      <username>ops.robot</username>
+      <password>Ezhome201705@1</password>
+    </server> 
+  </servers>
+ 
+  <mirrors> 
+     <mirror>
+         <id>mirror-alpha</id>
+         <mirrorOf>juran</mirrorOf>
+         <url>http://54.222.184.181:8082/nexus/content/groups/alpha-group/</url>
+     </mirror>
+  </mirrors>
+ 
+  <profiles>
+    <profile>
+      <id>profile-alpha</id>
+      <activation>
+        <jdk>1.8</jdk>
+		<activeByDefault>true</activeByDefault>
+      </activation>
+      <repositories>
+        <repository>
+          <id>repo-alpha</id>
+          <name>juran-alpha-repo</name>
+          <url>http://54.222.184.181:8082/nexus/content/groups/alpha-group</url>
+          <layout>default</layout>
+          <snapshots>
+			<enabled>true</enabled>
+		  </snapshots>
+        </repository>
+      </repositories>
+    </profile>
+  </profiles>
+ 
+  <activeProfiles>
+    <activeProfile>profile-alpha</activeProfile>
+  </activeProfiles>
+  
+</settings>

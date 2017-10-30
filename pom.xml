@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.juran.design</groupId>
+	<artifactId>acs-terminator</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<description>ACS数据迁移工具</description>
+
+	<modules>
+		<module>terminator-app</module>
+		<module>terminator-client</module>
+	</modules>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<java.version>1.8</java.version>
+
+		<juran-core.version>0.0.5-SNAPSHOT</juran-core.version>
+		<support-id.version>0.0.1-SNAPSHOT</support-id.version>
+
+		<terminator-client.version>0.0.1-SNAPSHOT</terminator-client.version>
+		<acs-client.version>0.0.2-SNAPSHOT</acs-client.version>
+		<homestyler-client.version>0.0.2-SNAPSHOT</homestyler-client.version>
+
+	</properties>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>1.5.2.RELEASE</version>
+		<relativePath />
+	</parent>
+
+	<dependencyManagement>
+		<dependencies>
+			<!-- juran core -->
+			<dependency>
+				<groupId>com.juran.core</groupId>
+				<artifactId>core-app</artifactId>
+				<version>${juran-core.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<dependency>
+				<groupId>com.juran.support</groupId>
+				<artifactId>support-id-generator</artifactId>
+				<version>${support-id.version}</version>
+			</dependency>
+			<!-- juran service -->
+			<dependency>
+				<groupId>com.juran.example</groupId>
+				<artifactId>examplemovie-client</artifactId>
+				<version>${examplemovie-client.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.juran.example</groupId>
+				<artifactId>exampleuser-client</artifactId>
+				<version>${exampleuser-client.version}</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+</project>
